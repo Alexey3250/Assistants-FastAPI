@@ -40,7 +40,7 @@ uvicorn main:app --reload
 import axios from 'axios';
 
 const response = await axios.post('http://127.0.0.1:8000/summarise/', {
-    message: "Ваше сообщение здесь"
+    message: "Кидаем стринг со всеми сообщениями суда"
 });
 console.log(response.data);
 ```
@@ -50,7 +50,7 @@ console.log(response.data);
 ```python
 import requests
 
-response = requests.post('http://127.0.0.1:8000/summarise/', json={"message": "Ваше сообщение здесь"})
+response = requests.post('http://127.0.0.1:8000/summarise/', json={"message": "Кидаем стринг со всеми сообщениями суда"})
 print(response.json())
 ```
 
