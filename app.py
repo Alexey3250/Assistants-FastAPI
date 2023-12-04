@@ -31,10 +31,10 @@ async def perform_summarization(message: str):
     thread = await asyncio.to_thread(client.beta.threads.create)
     print(f"Thread created with ID: {thread.id}")
 
-    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread.id, role="user", content=request.message)
+    await asyncio.to_thread(client.beta.threads.messages.create, thread_id=thread.id, role="user", content=message)
     print("Message added to the thread.")
 
-    run = await asyncio.to_thread(client.beta.threads.runs.create, thread_id=thread.id, assistant_id=summariser_assistant_id)
+    run = await asyncio.to_thread(client.beta.threads.runs.create, thread_id=thread.id, assistant_id="asst_kCSrKaHjh589gbKr2fphQ93T")
     print(f"Run started with ID: {run.id}")
 
     async def check_run_status(thread_id, run_id):

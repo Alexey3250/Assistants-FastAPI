@@ -4,7 +4,7 @@ import json
 import time
 
 # The endpoint of your FastAPI server
-URL = "http://127.0.0.1:8000/summarise/"
+URL = "http://127.0.0.1:8000/summarize/"
 
 # Example request data
 data = {

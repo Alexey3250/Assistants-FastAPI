@@ -12,7 +12,7 @@ class MessageRequest(BaseModel):
 openai_api_key = os.getenv("OPENAI_API_KEY")
 summariser_assistant_id = "asst_kCSrKaHjh589gbKr2fphQ93T"
 
-@app.post("/summarise/")
+@app.post("/summarize/")
 async def summarise(request: MessageRequest):
     print("Starting summarisation process...")
     
