@@ -1,8 +1,9 @@
+import asyncio
+import os
+
+import openai
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-import openai
-import os
-import asyncio
 
 # Инициализация приложения FastAPI
 app = FastAPI()
@@ -97,6 +98,11 @@ async def send_message_get_reply(message: str, thread_id: str | None):
     messages = await asyncio.to_thread(client.beta.threads.messages.list, thread_id=thread_id)
     last_message = next((m.content[0].text.value for m in messages.data if m.role == "assistant" and m.content), None)
     return last_message, thread_id
+
+# Конечная точка для проверки работоспособности
+@app.get("/")
+async def root():
+    return {"message": "Да вроди работает"}
 
 # Конечная точка для суммаризации
 @app.post("/summarize/")
